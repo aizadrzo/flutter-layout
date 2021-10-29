@@ -46,13 +46,14 @@ class _JsonPageState extends State<JsonPage> {
                               ? NetworkImage(showData[index]['avatar'])
                               : NetworkImage(
                                   'https://static.thenounproject.com/png/3134331-200.png'),
+                          radius: 25,
                         ),
                       ),
                       Expanded(
                           flex: 2,
                           child: Container(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   showData[index]['first_name'] +
@@ -60,13 +61,17 @@ class _JsonPageState extends State<JsonPage> {
                                       showData[index]['last_name'],
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 20,
+                                    fontSize: 15,
                                   ),
                                 ),
-                                Text(showData[index]['username']),
-                                Text(showData[index].containsKey("status")
-                                    ? showData[index]['status']
-                                    : 'N/A')
+                                Text(
+                                  showData[index]['username'],
+                                ),
+                                Text(
+                                  showData[index].containsKey("status")
+                                      ? showData[index]['status']
+                                      : 'N/A',
+                                )
                               ],
                             ),
                           )),
@@ -77,6 +82,16 @@ class _JsonPageState extends State<JsonPage> {
                           children: [
                             Text(
                               showData[index]['last_seen_time'],
+                            ),
+                            Container(
+                              width: 15,
+                              height: 15,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: Text(
+                                showData[index]['messages']?.toString() ?? '0',
+                              ),
                             )
                           ],
                         ),
