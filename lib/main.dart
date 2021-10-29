@@ -82,15 +82,17 @@ class _JsonPageState extends State<JsonPage> {
                           children: [
                             Text(
                               showData[index]['last_seen_time'],
+                              style: TextStyle(fontSize: 12),
                             ),
                             Container(
-                              width: 15,
-                              height: 15,
+                              padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
+                                color: Colors.blue,
                               ),
                               child: Text(
                                 showData[index]['messages']?.toString() ?? '0',
+                                style: TextStyle(fontSize: 10),
                               ),
                             )
                           ],
